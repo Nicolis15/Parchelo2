@@ -18,7 +18,6 @@ import com.example.parchelo.ui.theme.ParcheloTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             ParcheloTheme {
                 inicioSesion({ intentHomeScreen() })

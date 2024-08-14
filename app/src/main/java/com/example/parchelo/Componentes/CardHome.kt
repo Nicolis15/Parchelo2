@@ -70,8 +70,8 @@ fun CardHome(evento: Evento){
                     .fillMaxWidth()
                     .fillMaxHeight(0.7f)
                     .clickable {
-                        /*Funcion click, en este caso ya sabes Ahhhhh*/
-                               },
+                        //Agregar click
+                    },
                 contentScale = ContentScale.Crop,
                 painter = painterResource(id = evento.image),
                 contentDescription = ""

@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -21,6 +22,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
@@ -40,36 +42,31 @@ import com.example.parchelo.ui.theme.ParcheloTheme
 class HomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             ParcheloTheme {
-                HomeScreen()
+                val navController = rememberNavController()
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    topBar = { TopAppBar() },
+                    bottomBar = { Bottomnavigation(navController) },
+                ) { innerPadding ->
+                    Box(Modifier.padding(innerPadding)) {
+                        NavHost(navController = navController, startDestination = home.route) {
+                            composable(home.route) {
+                                Screen()
+                            }
+                            composable(user.route) {
+                                //UserScreen()
+                            }
+
+                        }
+                    }
+                }
             }
         }
     }
 }
 
-@Composable
-fun HomeScreen(){
-    val navController = rememberNavController()
-    Scaffold(
-        topBar = {TopAppBar()},
-        bottomBar = { Bottomnavigation(navController) },
-
-        ){
-        Box(Modifier.padding(it)){
-            NavHost(navController = navController, startDestination = home.route){
-                composable(home.route){
-                    Screen()
-                }
-                composable(user.route){
-                    //UserScreen()
-                }
-
-            }
-        }
-    }
-}
 
 @Composable
 fun Bottomnavigation(navController : NavController){
