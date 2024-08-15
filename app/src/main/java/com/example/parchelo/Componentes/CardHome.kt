@@ -22,10 +22,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.parchelo.Datos.Evento
+import com.example.parchelo.Datos.Eventos
 import com.example.parchelo.R
 import com.example.parchelo.ui.theme.ParcheloColors
 
@@ -33,16 +35,22 @@ import com.example.parchelo.ui.theme.ParcheloColors
 fun CardHome(evento: Evento){
     val id = evento.id.toString()
     Card (
-        modifier = Modifier.width(350.dp).height(190.dp).padding(10.dp),
+        modifier = Modifier
+            .width(350.dp)
+            .height(190.dp)
+            .padding(10.dp),
         elevation =  CardDefaults.cardElevation(defaultElevation = 6.dp)
     ){
         Column(
-            modifier = Modifier.background(ParcheloColors.Prymary)
+            modifier = Modifier
+                .background(ParcheloColors.Prymary)
         ) {
-            Row(modifier = Modifier.fillMaxWidth().padding(5.dp)) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(5.dp)) {
                 Text(
                     modifier = Modifier
-                        .padding(5.dp)
                         .fillMaxWidth(0.6f)
                         .align(Alignment.CenterVertically),
                     text = evento.nombre,
@@ -57,6 +65,7 @@ fun CardHome(evento: Evento){
                         fontSize = 12.sp,
                         text = evento.fecha,
                         color = ParcheloColors.Blanco)
+
                     Text(
                         fontSize = 12.sp,
                         text = evento.lugar,
@@ -88,5 +97,12 @@ fun CardHome(evento: Evento){
             }
         }
     }
+}
+
+@Composable
+@Preview(showBackground = true)
+fun ver(){
+    val evento = Eventos
+    CardHome(evento = evento.EventoLits[0])
 }
 
