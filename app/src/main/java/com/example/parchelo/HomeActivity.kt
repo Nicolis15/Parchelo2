@@ -32,10 +32,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.parchelo.Componentes.CardHome
 import com.example.parchelo.Componentes.TopAppBar
+import com.example.parchelo.Datos.Evento
 import com.example.parchelo.Datos.Eventos
 import com.example.parchelo.Grafos_navegacion.Destinations
 import com.example.parchelo.Grafos_navegacion.home
 import com.example.parchelo.Grafos_navegacion.user
+import com.example.parchelo.Screens.Bottomnavigation
+import com.example.parchelo.Screens.UserScreen
+import com.example.parchelo.Screens.homeScreen
 import com.example.parchelo.ui.theme.ParcheloColors
 import com.example.parchelo.ui.theme.ParcheloTheme
 
@@ -53,10 +57,10 @@ class HomeActivity : ComponentActivity() {
                     Box(Modifier.padding(innerPadding)) {
                         NavHost(navController = navController, startDestination = home.route) {
                             composable(home.route) {
-                                Screen()
+                                homeScreen()
                             }
                             composable(user.route) {
-                                //UserScreen()
+                                UserScreen()
                             }
 
                         }
@@ -65,47 +69,13 @@ class HomeActivity : ComponentActivity() {
             }
         }
     }
+
+    private fun intentEventoInfo(evento : Evento){
+    }
+
 }
 
 
-@Composable
-fun Bottomnavigation(navController : NavController){
-    val DestinationsList = listOf<Destinations>(home, user)
-    val SelectedIndex = rememberSaveable{
-        mutableStateOf(0)
-    }
-    BottomNavigation(backgroundColor = ParcheloColors.Blanco) {
-        DestinationsList.forEachIndexed { index, destinations ->
-            BottomNavigationItem(
-                label = { destinations.titulo?.let {
-                    androidx.compose.material.Text(text = it, fontWeight = FontWeight.Bold, color = ParcheloColors.Prymary) } },
-                selected = index == SelectedIndex.value,
-                onClick = {
-                    SelectedIndex.value = index
-                    navController.navigate(DestinationsList[index].route){
-                        popUpTo(home.route)
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                },
-                icon = { destinations.icon?.let { Icon(imageVector = it, contentDescription = destinations.titulo, tint = ParcheloColors.Prymary) } })
-        }
-    }
-}
 
-@Composable
-fun Screen() {
-    val list = Eventos.EventoLits
-    Surface(modifier = Modifier
-        .fillMaxSize()) {
-        LazyColumn(
-            state = rememberLazyListState(),
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally) {
-            itemsIndexed(list){_, evento ->
-                CardHome(evento = evento)
-            }
-        }
 
-    }
-}
+
