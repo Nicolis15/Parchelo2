@@ -25,7 +25,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.navigation.NavHostController
 import com.example.parchelo.Datos.Evento
 import com.example.parchelo.Datos.Eventos
 import com.example.parchelo.R
@@ -33,7 +32,6 @@ import com.example.parchelo.ui.theme.ParcheloColors
 
 @Composable
 fun CardHome(evento: Evento){
-    val id = evento.id.toString()
     Card (
         modifier = Modifier
             .width(350.dp)
@@ -79,7 +77,7 @@ fun CardHome(evento: Evento){
                     .fillMaxWidth()
                     .fillMaxHeight(0.7f)
                     .clickable {
-                        //Agregar click
+
                     },
                 contentScale = ContentScale.Crop,
                 painter = painterResource(id = evento.image),
