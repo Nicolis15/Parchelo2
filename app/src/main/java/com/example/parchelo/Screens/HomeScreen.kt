@@ -34,7 +34,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.parchelo.Componentes.CardHome
 import com.example.parchelo.Datos.Evento
 import com.example.parchelo.Datos.Eventos
 import com.example.parchelo.Grafos_navegacion.Destinations
