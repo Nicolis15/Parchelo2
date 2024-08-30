@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.example.parchelo.Screens.inicioSesion
 import com.example.parchelo.ui.theme.ParcheloTheme
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class MainActivity : ComponentActivity() {
@@ -23,9 +24,10 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth = Firebase.auth
         setContent {
             ParcheloTheme {
-                inicioSesion({ intentHomeScreen() })
+                inicioSesion({ intentHomeScreen() }, auth)
             }
         }
     }
@@ -34,5 +36,6 @@ class MainActivity : ComponentActivity() {
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
     }
+
 }
 
