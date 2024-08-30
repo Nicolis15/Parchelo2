@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">Parchelo</string>
     <string name="usuario">Usuario</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="email">Email</string>
+    <string name="confirmaremail">Confirmar Email</string>
     <string name="contrasenia">Contraseña</string>
+    <string name="confirmarcontrasenia">Confirmar Contraseña</string>
     <string name="inicioSesion">Iniciar sesion</string>
     <string name="usuarioycontrasenia">Olvide mi usuario y contraseña</string>
     <string name="registrarse">Registrarse</string>
     <string name="notienescuenta">¿No tienes cuenta?</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_evento_info">EventoInfo</string>
+    <string name="title_activity_registrarse">RegistrarseActivity</string>
 </resources>

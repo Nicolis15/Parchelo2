@@ -13,6 +13,11 @@
         android:theme="@style/Theme.Parchelo"
         tools:targetApi="31">
         <activity
+            android:name=".RegistrarseActivity"
+            android:exported="false"
+            android:label="@string/title_activity_registrarse"
+            android:theme="@style/Theme.Parchelo" />
+        <activity
             android:name=".EventoInfo"
             android:exported="false"
             android:label="@string/title_activity_evento_info"

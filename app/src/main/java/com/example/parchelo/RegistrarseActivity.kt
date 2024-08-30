@@ -4,34 +4,28 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.parchelo.Screens.inicioSesion
+import androidx.activity.enableEdgeToEdge
+import com.example.parchelo.Screens.RegistrarseScreen
 import com.example.parchelo.ui.theme.ParcheloTheme
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class MainActivity : ComponentActivity() {
-
+class RegistrarseActivity : ComponentActivity() {
     private lateinit var auth : FirebaseAuth
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         auth = Firebase.auth
         setContent {
             ParcheloTheme {
-                inicioSesion({ intentHomeScreen() }, auth, {intentRegistrarse()})
+                RegistrarseScreen(auth = auth) { intentMain() }
             }
         }
     }
-
-    private fun intentHomeScreen(){
-        val intent = Intent(this, HomeActivity::class.java)
+    private fun intentMain(){
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
-    private fun intentRegistrarse(){
-        val intent = Intent(this, RegistrarseActivity::class.java)
-        startActivity(intent)
-    }
-
 }
 

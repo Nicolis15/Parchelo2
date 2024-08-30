@@ -30,9 +30,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parchelo.R
@@ -40,7 +38,7 @@ import com.example.parchelo.ui.theme.ParcheloColors
 import com.google.firebase.auth.FirebaseAuth
 
 @Composable
-fun inicioSesion(onclick : () -> Unit, auth : FirebaseAuth){
+fun inicioSesion(onclickHome: () -> Unit, auth: FirebaseAuth, onclickRegistrarse: () -> Unit){
     var context = LocalContext.current
 
     var usuario : String by remember{ mutableStateOf("") }
@@ -104,7 +102,7 @@ fun inicioSesion(onclick : () -> Unit, auth : FirebaseAuth){
                     auth.signInWithEmailAndPassword(usuario, contrasenia).addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 Toast.makeText(context, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show()
-                                onclick()
+                                onclickHome()
                             } else {
                                 Toast.makeText(context, "Usuario o Contraseña incorrectos", Toast.LENGTH_SHORT).show()
                             }
@@ -145,7 +143,7 @@ fun inicioSesion(onclick : () -> Unit, auth : FirebaseAuth){
             )
             Text(
                 modifier = Modifier.clickable {
-
+                    onclickRegistrarse()
                 },
                 text = stringResource(id = R.string.registrarse),
                 textDecoration = TextDecoration.Underline)
