@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
+
 }
 
 android {
@@ -53,6 +56,16 @@ dependencies {
 
     implementation("androidx.compose.material:material:1.6.4")
     implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    //FireBase
+    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
+    implementation("com.google.firebase:firebase-auth-ktx")
+
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-analytics")
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

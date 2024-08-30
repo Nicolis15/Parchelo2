@@ -14,8 +14,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.parchelo.Screens.inicioSesion
 import com.example.parchelo.ui.theme.ParcheloTheme
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : ComponentActivity() {
+
+    private lateinit var auth : FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

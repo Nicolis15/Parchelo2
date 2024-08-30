@@ -9,8 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -22,9 +21,8 @@ import com.example.parchelo.Grafos_navegacion.user
 import com.example.parchelo.Screens.Bottomnavigation
 import com.example.parchelo.Screens.UserScreen
 import com.example.parchelo.Screens.homeScreen
-
 import com.example.parchelo.ui.theme.ParcheloTheme
-import kotlinx.coroutines.flow.MutableStateFlow
+
 
 class HomeActivity : ComponentActivity() {
 
